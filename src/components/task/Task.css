@@ -1,0 +1,13 @@
+.task-list-item {
+  text-align: center;
+}
+
+.task-delete-button {
+  width: 5rem;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.list-title {
+  margin-bottom: 15px;
+}
