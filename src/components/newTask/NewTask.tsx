@@ -1,14 +1,17 @@
 import { type FormEvent } from "react";
 import { useTaskContext } from "../../store/tasks-context";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import { Form, Button } from "react-bootstrap";
 
 import "./NewTask.css";
 
 const NewTask: React.FC = () => {
+  const { user } = useAuth0();
   const { addTask } = useTaskContext();
   const navigate = useNavigate();
+
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -21,7 +24,13 @@ const NewTask: React.FC = () => {
       return;
     }
 
-    addTask({ id: Date.now(), task, description, completed: false });
+    addTask({
+      id: Date.now(),
+      task,
+      description,
+      completed: false,
+      userId: user?.sub || "",
+    });
     console.log(formData);
 
     navigate("/");

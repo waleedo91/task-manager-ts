@@ -1,3 +1,6 @@
+import { useTaskContext } from "../../store/tasks-context";
+import { Link } from "react-router-dom";
+
 import { Card, Button } from "react-bootstrap";
 
 import "./Task.css";
@@ -8,14 +11,25 @@ type TaskProps = {
   completed: boolean;
 };
 
-export default function Task({ title, completed }: TaskProps) {
+export default function Task({ id, title, completed }: TaskProps) {
+  const { deleteTask, toggleTask } = useTaskContext();
   return (
     <>
       <Card style={{ width: "18rem" }} className="task-list-item">
-        <Button className="task-delete-button" variant='danger'>Delete</Button>
+        <Button
+          onClick={() => deleteTask(id)}
+          className="task-delete-button"
+          variant="danger"
+        >
+          Delete
+        </Button>
         <Card.Body>
-          <Card.Title className="list-title">{title}</Card.Title>
-          <Button>{completed ? "Complete" : "Incomplete"}</Button>
+          <Link to={`/task/${id}`}>
+            <Card.Title className="list-title">{title}</Card.Title>
+          </Link>
+          <Button onClick={() => toggleTask(id)}>
+            {completed ? "Complete" : "Incomplete"}
+          </Button>
         </Card.Body>
       </Card>
     </>
