@@ -5,12 +5,12 @@ const Footer = () => {
   return (
     <Navbar
       expand="lg"
-      className="bg-body-tertiary"
+      className="bg-body-tertiary footer-container"
       fixed="bottom"
       data-bs-theme="dark"
     >
       <Container>
-        <Navbar.Brand href="#">Navbar</Navbar.Brand>
+        <Navbar.Brand href="#">Task Manager App</Navbar.Brand>
       </Container>
     </Navbar>
   );

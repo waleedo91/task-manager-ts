@@ -12,7 +12,6 @@ const NewTask: React.FC = () => {
   const { addTask } = useTaskContext();
   const navigate = useNavigate();
 
-
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -37,24 +36,27 @@ const NewTask: React.FC = () => {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className="new-task-form">
-      <Form.Group className="mb-3" controlId="taskInput">
-        <Form.Label>Task Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter your task here."
-          name="task"
-          required
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Description:</Form.Label>
-        <Form.Control as="textarea" rows={3} name="description" />
-      </Form.Group>
-      <Button type="submit" variant="primary">
-        Submit Task
-      </Button>
-    </Form>
+    <div className="new-task-container">
+      <h1>Create Task</h1>
+      <Form onSubmit={handleSubmit} className="new-task-form">
+        <Form.Group className="mb-3" controlId="taskInput">
+          <Form.Label>Task Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter your task here."
+            name="task"
+            required
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Description:</Form.Label>
+          <Form.Control as="textarea" rows={3} name="description" />
+        </Form.Group>
+        <Button type="submit" variant="primary">
+          Submit Task
+        </Button>
+      </Form>
+    </div>
   );
 };
 

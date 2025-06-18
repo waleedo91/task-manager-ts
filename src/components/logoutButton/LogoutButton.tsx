@@ -6,6 +6,7 @@ export default function LogoutButton() {
 
   return (
     <Button
+      variant="danger"
       onClick={() =>
         logout({
           logoutParams: {

@@ -8,10 +8,14 @@ import "./Header.css";
 const Header = () => {
   const { isAuthenticated, user, isLoading } = useAuth0();
   return (
-    <Navbar className="bg-body-tertiary" data-bs-theme="dark">
+    <Navbar
+      className="bg-body-tertiary navbar-container"
+      data-bs-theme="dark"
+      fixed="top"
+    >
       <Container>
-        <Link to="/">
-          <Navbar.Brand>Task Manager App</Navbar.Brand>
+        <Link to="/" className="site-title">
+          <Navbar.Brand className="brand-name">Task Manager App</Navbar.Brand>
         </Link>
         {isAuthenticated && (
           <Link to="/new-task">
@@ -25,8 +29,8 @@ const Header = () => {
             <Navbar.Text>Loading...</Navbar.Text>
           ) : isAuthenticated ? (
             <>
-              <Navbar.Text>
-                Signed in as <strong>{user?.name}</strong>
+              <Navbar.Text className="user-greeting">
+                Hello, <strong>{user?.name}!</strong>
               </Navbar.Text>
               <LogoutButton />
             </>

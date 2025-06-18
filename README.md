@@ -1,54 +1,23 @@
-# React + TypeScript + Vite
+- Download application and then extract to desired folder. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Install all required dependencies by running the script "npm install"  in root of the folder. 
 
-Currently, two official plugins are available:
+- Authorization will require an account in Auth0 going to their website auth0.com and registering.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Once registered login go to applications, and create application. Follow the steps required. 
 
-## Expanding the ESLint configuration
+- Once finished creating application. Be sure to add your local host url into the following fields
+  - Allowed Callback URLs
+  - Allowed Logout URLs
+  - Allowed Web Origins
+  - Allowed Origins (CORS)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-Once finished filling the required fields, create a '.env' file at the root of your folder. 
+  - Enter your ClientID and Domain as such i.e.:
+      - VITE_AUTH0_DOMAIN='Your Domain from Auth0'
+      - VITE_AUTH0_CLIENT_ID='Your clientID from Auth0'
+      - THE QUOTES ARE NOT REQUIRED!!!!
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- The fields are already pre-filled for you in the main.tsx file. So no change is required. 
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Run the app running 'npm run dev' in the console and time to rock n roll. 

@@ -1,5 +1,7 @@
 import { useTaskContext } from "../../store/tasks-context";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 import { Card, Button } from "react-bootstrap";
 
@@ -21,14 +23,14 @@ export default function Task({ id, title, completed }: TaskProps) {
           className="task-delete-button"
           variant="danger"
         >
-          Delete
+          <FontAwesomeIcon icon={faTrash} />
         </Button>
-        <Card.Body>
+        <Card.Body className="content-items">
           <Link to={`/task/${id}`}>
             <Card.Title className="list-title">{title}</Card.Title>
           </Link>
-          <Button onClick={() => toggleTask(id)}>
-            {completed ? "Complete" : "Incomplete"}
+          <Button onClick={() => toggleTask(id)} className="complete-button">
+            {completed ? <FontAwesomeIcon icon={faCheck} /> : "Incomplete"}
           </Button>
         </Card.Body>
       </Card>

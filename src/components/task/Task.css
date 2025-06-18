@@ -1,13 +1,29 @@
 .task-list-item {
   text-align: center;
+  position: relative;
 }
 
 .task-delete-button {
-  width: 5rem;
+  width: 3rem;
   margin: 0 auto;
   margin-top: 15px;
+  position: absolute;
+  right: 5px;
+  bottom: 120px;
 }
 
 .list-title {
   margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+.content-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.complete-button {
+  margin-top: 20px;
+  width: 50%;
 }

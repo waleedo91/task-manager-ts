@@ -2,3 +2,15 @@
   width: 5em;
   height: 3em;
 }
+
+.user-greeting {
+  margin-right: 10px;
+}
+
+.site-title {
+  text-decoration: none;
+}
+
+.brand-name:hover {
+  color: rgb(128, 128, 246);
+}

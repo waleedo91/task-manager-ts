@@ -15,8 +15,8 @@ function TaskManager() {
   const userTasks = tasks.filter((task) => task.userId === user?.sub);
 
   return (
-    <>
-      <h1>Task Manager</h1>
+    <div className="task-list-container">
+      <h1 className="task-list-title">Task Manager</h1>
       <ul className="task-list">
         {userTasks.length === 0 && <p>Nothing yet!</p>}
         {userTasks.map((task) => (
@@ -25,7 +25,7 @@ function TaskManager() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 
